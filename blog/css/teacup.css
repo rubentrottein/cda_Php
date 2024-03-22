@@ -1,0 +1,79 @@
+:root{
+    --background : #eee;
+    --text : #333;
+    --link : dodgerblue;
+    --main : rgba(255,255,255, .4);
+}
+.theme-hoot{
+    --background : #333;
+    --text : #eee;
+}
+.theme-neon{
+    --background : #000;
+    --text : lime;
+    --link : lightpink;
+}
+.theme-mariposa{
+    --background : salmon;
+    --text : aliceblue;
+}
+
+*{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    font-size: 14px;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+a{
+    color: var(--link);
+}
+body{
+    background: var(--background);
+    color: var(--text);
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    min-height: 85dvh;
+    margin: 1em auto;
+    width: 85%;
+    background: var(--main);
+    border-radius: 10px;
+}
+header{
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position:sticky;
+    top:0;
+    z-index: 1;
+    width: 100%;
+}
+h1{
+    font-size: 2.5rem;
+    font-weight: 100;
+}
+
+footer{
+    position: fixed;
+    bottom:1em;
+    right:-10%;
+    padding:1em;
+    background: radial-gradient(black, #333);
+    border-radius: 15px 0 0 15px;
+    box-shadow: #aaa 0 0 10px;
+    transition: .5s;
+    opacity: .3;
+}
+footer *{
+    margin-left: 1em;
+}
+footer:hover{
+    right:0;
+    opacity: 1;
+}
