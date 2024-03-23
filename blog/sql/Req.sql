@@ -181,5 +181,3 @@ SELECT
     (SELECT COUNT(*) FROM orders) AS Commandes,
     (SELECT COUNT(*) FROM products) AS Produits,
     (SELECT COUNT(*) FROM customers) AS Clients;
-
-
