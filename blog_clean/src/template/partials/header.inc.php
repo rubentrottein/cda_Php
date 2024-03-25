@@ -41,9 +41,6 @@
             </div>
         </nav>
         <!-- Page Header-->
-        <p class="monitor">
-            <?php var_dump($layoutImage);?>
-        </p>
         <header class="masthead" style="background-image: url('public/front/assets/img/<?=$layoutImage?>')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
