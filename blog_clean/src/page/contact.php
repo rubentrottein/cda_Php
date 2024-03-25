@@ -1,4 +1,4 @@
-<?
+<?php
     $layoutTitle = "Contact";
     $layoutImage="contact-bg.jpg";
     

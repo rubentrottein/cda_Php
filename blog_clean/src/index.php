@@ -12,7 +12,6 @@
     }
 
     $url = "page/$page.php";
-    //die($url);
     
     if(file_exists($url)){
         require($url);

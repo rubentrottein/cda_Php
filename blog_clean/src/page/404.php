@@ -1,4 +1,4 @@
-<?
+<?php
     $layoutImage="";
     include "template/partials/header.inc.php"
 ?>
