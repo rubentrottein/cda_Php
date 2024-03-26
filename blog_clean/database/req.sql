@@ -10,6 +10,8 @@ ORDER BY updatedAt DESC
 LIMIT 10;
 
 /* Page détail */
+/*Version finale utilise le slug pour la requête*/
+
 SELECT image, createdAt, updatedAt, title, A.content, name, B.slug, lastName, firstName, email
 FROM posts A
 INNER JOIN categories B ON A.id_categories = B.id
@@ -17,9 +19,15 @@ INNER JOIN users C ON id_users = C.id
 WHERE active = TRUE
 	AND A.id = 2;
 
+
 /* Les commentaires de la page détail */
 SELECT firstName, lastName, content, createdAt 
 FROM comments A
 INNER JOIN users B ON A.id_users = B.id 
 WHERE A.id_posts = 1 
 ORDER by createdAt DESC;
+
+/* Verification des infos de l'utilisateur*/
+SELECT id, firstName, lastName, password, role, email
+FROM users
+WHERE email = :email

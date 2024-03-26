@@ -1,7 +1,7 @@
 <?php
-    $layoutTitle = "Page d'accueil";
-    $layoutDescription = "Un modeste blog sur les jeux vidéo";
     $headerTitle = SITE_NAME;
+    $headerSubheading = "Page d'accueil";
+    $layoutImage = "home-bg1.png";
     require("sql/post.sql.php");
     $posts = getAllPosts();
     require("template/index.tpl.php");

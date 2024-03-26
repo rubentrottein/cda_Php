@@ -3,9 +3,12 @@
 define('DEFAULT_PAGE', 'home');
 
 //Valeurs par défaut du Layout
-$layoutTitle = "Vidya 4 ya";
+$layoutTitle = "La Tech dans les étoiles";
 $layoutImage = "home-bg.jpg";
 $layoutDescription = "";
+
+$headerTitle = "";
+$headerSubheading = "";
 
 //Config BDD MySQL
 define("DB_HOST", "localhost:3306");

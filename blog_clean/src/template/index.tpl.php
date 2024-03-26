@@ -7,19 +7,19 @@
                     <?php foreach ($posts as $post) { ?>
                             <div class="post-preview">
                                 <img class="w-100" src=<?= "public/front/assets/img/".$post['image']?> alt=<?= $post["title"]?> />
-                                <a href="?page=post">
+                                <a href="?page=post&slug=<?=$post['postSlug'];?>">
                                     <h2 class="post-title"><?= $post['title'] ?></h2>
                                     <h3 class="post-subtitle"><?= $post['content']?> ...</h3>
                                     <?= $post['name'] ?>
                                 </a>
                                 <p class="post-meta">
                                     Par
-                                    <a href="#!"><?= $post['firstName'],$post['lastName'] ?></a>
+                                    <a href="00"><?= $post['firstName'],$post['lastName'] ?></a>
                                     <br>
                                     dernière modification :  <?= $post['updatedAt'] ?>
                                     <?php
                                         if( $post['nbComments'] > 0) {
-                                            echo "<br>". $post['nbComments'] . " commentaire(s)"; 
+                                            echo "<br>". $post['nbComments'] . " " . pluralize('commentaire', $post['nbComments']); 
                                         }
                                     ?>
                                 </p>

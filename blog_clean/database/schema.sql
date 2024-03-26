@@ -16,6 +16,7 @@ CREATE TABLE users(
         phone     Varchar (10) ,
         password  Varchar (255) NOT NULL ,
         role      Varchar (10) NOT NULL
+	,CONSTRAINT users_AK UNIQUE (email)
 	,CONSTRAINT users_PK PRIMARY KEY (id)
 )ENGINE=InnoDB;
 
@@ -47,6 +48,7 @@ CREATE TABLE posts(
         active        Bool NOT NULL ,
         id_users      Int NOT NULL ,
         id_categories Int NOT NULL
+	,CONSTRAINT posts_AK UNIQUE (slug)
 	,CONSTRAINT posts_PK PRIMARY KEY (id)
 )ENGINE=InnoDB;
 
