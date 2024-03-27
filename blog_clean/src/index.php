@@ -1,6 +1,7 @@
 
 
 <?php
+    session_start();
     
     //Chargement des paramètres du site
     require('config/param.inc.php');
@@ -31,24 +32,10 @@
 <!-- Moniteur d'affichage des erreurs -->
 <pre class="monitor">
     <style>
-        .monitor{
-            position:fixed; 
-            right:-55dvw;
-            bottom: 1em;
-            padding: 1em; 
-            background: black;
-            opacity: 0.2;
-            color: dodgerblue; 
-            border-left: 5px lime groove;
-            transition: .5s;
-        }
-        .monitor:hover{
-            opacity: 0.9;
-            right: 0;
-        }
+        
     </style>
     <?php
-        var_dump($_GET);
+        var_dump($_SESSION);
         $page = $_GET['page'];
         echo "Page actuelle : $page , Image : $layoutImage";
     ?>

@@ -17,6 +17,7 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="public/front/css/styles.css" rel="stylesheet" />
+        <link href="public/front/css/blog.css" rel="stylesheet" />
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" defer></script>
         <!-- Core theme JS-->
@@ -36,10 +37,17 @@
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="?page=home">Home</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="?page=about">About</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="?page=404">Sample Post</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="?page=login">connexion</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="?page=contact">Contact</a></li>
+                        <?php
+                        if(!isset($_SESSION['user'])){
+                            echo "<li class='nav-item'><a class='nav-link px-lg-3 py-3 py-lg-4' href='?page=login'>Log in</a></li>";
+                            echo '<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Se connecter</button>';
+                        } else {
+                            echo "<li class='nav-item'><a class='nav-link px-lg-3 py-3 py-lg-4' href='?page=logout'>Log out</a></li>";
+                            echo "<li class='nav-item'><a class='nav-link px-lg-3 py-3 py-lg-4' href='?page=profile'>Profil de ".$_SESSION['user']['firstName']."</a></li>";
+                        
+                        }?>
                     </ul>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Se connecter</button>
                 </div>
             </div>
         </nav>

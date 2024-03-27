@@ -1,0 +1,26 @@
+.monitor{
+    position:fixed; 
+    right:-54dvw;
+    width: 55dvw;
+    bottom: 1em;
+    padding: 1em; 
+    background: black;
+    opacity: 0.2;
+    color: dodgerblue; 
+    border-left: 5px lime groove;
+    transition: .5s;
+}
+.monitor:hover{
+    opacity: 0.9;
+    right: 0;
+}
+
+
+#offcanvasWithBothOptions{
+    background: url("../assets/img/1703963842960182.png")fixed;
+    background-size:cover;
+}
+.offcanvas-body form{
+    backdrop-filter: blur(15px);
+    border-radius : 10px;
+}

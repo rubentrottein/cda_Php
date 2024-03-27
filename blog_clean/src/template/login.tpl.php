@@ -4,19 +4,20 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <p>Login!</p>
+                        <p>Veuillez entrer votre identifiant(email) ainsi que votre mot de passe.</p>
                         <div class="my-5">
-                           
-                        
+                            <?php if (isset($status))
+                                echo "<p class='alert alert-warning'>Utilisateur inconnu, veuillez recommencer</p>";
+                            ?>
                             <form id="login" method="POST" action="#">
                                 <div class="form-floating">
-                                    <input class="form-control" id="mail" type="mail" name="mail" placeholder="Enter your email..." data-sb-validations="required,mail" />
+                                    <input class="form-control" id="mail" type="email" name="email" placeholder="Enter your email..." data-sb-validations="required,mail" />
                                     <label for="mail">Email address</label>
-                                    <div class="invalid-feedback" data-sb-feedback="mail:required">An email is required.</div>
-                                    <div class="invalid-feedback" data-sb-feedback="mail:mail">Email is not valid.</div>
+                                    <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                                    <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="pass" type="password" placeholder="Mot de passe..." data-sb-validations="required" />
+                                    <input class="form-control" id="pass" type="password" name="password" placeholder="Mot de passe..." data-sb-validations="required" />
                                     <label for="pass">Password</label>
                                     <div class="invalid-feedback" data-sb-feedback="password:required">A name is required.</div>
                                 </div>
@@ -29,8 +30,11 @@
                                         <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
                                     </div>
                                 </div>
-                                <!-- Submit Button-->
-                                <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Send</button>
+                                <div class="d-flex justify-content-around">
+                                    <!-- Submit Button-->
+                                    <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Send</button>
+                                    <a href="?page=register" class="text-info">S'inscrire</a>
+                                </div>
                             </form>
                         </div>
                     </div>
