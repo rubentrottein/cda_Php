@@ -14,7 +14,7 @@
         <h3 class="display-2 container">Commentaires</h3>
         <?php if(isset($comments)){
             forEach($comments as $comment){ ?>
-                <article class="container rounded bg-light p-3 my-5 text-black">
+                <article class="container rounded bg-light p-3 my-5 text-black" id="comments">
                     <h4 class="lead text-info fs-1">
                         <?= $comment['firstName'];?>
                         <?= $comment['lastName'];?>
@@ -25,8 +25,20 @@
                     </p>
                     <i class="italic font-size-small"><?= $comment['createdAt'];?></i>
                 </article>
-            <?php } 
+            <?php
+            }
         } else { ?>
             <p>Pas de commentaires ! <br> <a href="">soyez le premier à en écrire un!</a></p>
-        <?php } ?>
-<?php include 'partials/footer.inc.php'?>
+        <?php }
+        if (isset($_SESSION['user'])){ ?>
+            <article class="container">
+                <h2 class="display-6">Ajouter un commentaire</h2>
+                <form action="?page=post&slug=<?=$_GET['slug']?>" method="POST" id="contactForm">
+                    <textarea  class="form-control" name="newComment" id="newComment" cols="30" rows="10"></textarea>
+                    <input class="form-control btn btn-info"  type="submit" value="Envoyer">
+                </form>
+            </article>
+            <?php
+        } 
+        
+        include 'partials/footer.inc.php';

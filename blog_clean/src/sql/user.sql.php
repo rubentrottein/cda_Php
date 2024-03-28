@@ -14,27 +14,34 @@ function userLogin($email){
         $user = $cursor->fetch();
         return $user;
     } catch (PDOException $e) {
-        die("Erreur SQL : " . $e->getMessage());
+        set_flash_message("Erreur de connexion. Réessayez <br>erreur $e", 'danger');
     }
 }
 
 function registerUser($user){
     global $pdo;
     try {
-        $query = "INSERT INTO users (firstName, lastName, phone, password, role, email)
-        VALUES(:firstName, :lastName, ':phone', :password, 'ROLE_USER', :email)";
+        $query = 
+        "INSERT INTO users 
+            (firstName, lastName, phone, email, password , role)
+        VALUES
+            (:firstName, :lastName, ':phone', :email, :password , 'ROLE_USER')";
         
         $cursor = $pdo->prepare($query);
             $cursor -> bindParam(":firstName", $user['firstName'], PDO::PARAM_STR);
             $cursor -> bindParam(":lastName", $user['lastName'], PDO::PARAM_STR);
             $cursor -> bindParam(":phone", $user['phone'], PDO::PARAM_STR);
-            $cursor -> bindParam(":password", $user['password'], PDO::PARAM_STR);
             $cursor -> bindParam(":email", $user['email'], PDO::PARAM_STR);
+            $cursor -> bindParam(":password", $user['password'], PDO::PARAM_STR);
         $cursor->execute();
-
+        
+        set_flash_message('Utilisateur enregistré!', 'success');
         return TRUE;
+
     } catch (PDOException $e) {
-        die("Erreur SQL : " . $e->getMessage());
+        set_flash_message("Echec de l'inscription. Réessayez <br>erreur $e", 'danger');
+        return FALSE;
+    
     }
 }       
 
@@ -45,14 +52,14 @@ function updateUser($user){
         $update=true;
         $query = "UPDATE users SET firstName=:firstName, lastName=:lastName, phone=:phone WHERE id=:id";
         $cursor = $pdo->prepare($query);
-            $cursor -> bindParam(":id", $user['id'], PDO::PARAM_STR);
+            $cursor -> bindParam(":id", $_SESSION['user']['id'], PDO::PARAM_STR);
             $cursor -> bindParam(":firstName", $user['firstName'], PDO::PARAM_STR);
             $cursor -> bindParam(":lastName", $user['lastName'], PDO::PARAM_STR);
             $cursor -> bindParam(":phone", $user['phone'], PDO::PARAM_STR);
         $cursor->execute();
-
+        set_flash_message('Modifications prises en compte!', 'success');
         return TRUE;
     } catch (PDOException $e) {
-        die("Erreur SQL : " . $e->getMessage());
+        set_flash_message('Pas de modification en BDD!', 'danger');
     }
 }       

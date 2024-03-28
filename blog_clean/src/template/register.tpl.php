@@ -4,11 +4,11 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <p>Login!</p>
+                        <p>Remplissez le formulaire pour procéder à l'inscription</p>
                         <div class="my-5">
-                           
                         
-                            <form id="login" method="POST" action="#">
+                            <?php isset($message) && display_flash_message(); ?>
+                            <form id="login" method="POST" action="?page=register">
                                 <div class="form-floating">
                                     <input class="form-control" id="mail" type="text" name="firstName" placeholder="Enter your email..." data-sb-validations="required,firstName" />
                                     <label for="firstName">Prénom</label>

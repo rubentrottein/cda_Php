@@ -14,7 +14,7 @@
                 $status = true;
             }
     } else {
-        echo "Echec de la connexion";
+        echo "<div class='monitor'>Echec de la connexion</div>";
     }
     require("template/login.tpl.php");
 ?>

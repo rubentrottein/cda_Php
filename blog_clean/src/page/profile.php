@@ -5,16 +5,16 @@
     $layoutImage="login-bg.png";
     $layoutDescription = "Accedez a votre espace personnel";
     require "sql/user.sql.php";
-    $user=$_SESSION['user'];
     
     if($_SERVER['REQUEST_METHOD'] === "POST"){
+        $message=true;
         updateUser($_POST);
-        $user=$_POST;
-        echo "<div class='monitor'>Modifications prises en compte!</div>";
-        $update = false;
-    } else {
-        echo "<div class='monitor'>Echec de la mise à jour du profil</div>";
+        $_SESSION['user']['firstName']=$_POST['firstName'];
+        $_SESSION['user']['lastName']=$_POST['lastName'];
+        $_SESSION['user']['phone']=$_POST['phone'];
     }
+
+    
 
     require("template/profile.tpl.php");
 ?>

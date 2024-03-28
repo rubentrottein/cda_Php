@@ -13,6 +13,7 @@
     
     //Chargement des librairies
     require ("lib/pluralize.lib.php");
+    require ("lib/flash.lib.php");
     
     //Router
     $page = DEFAULT_PAGE;
@@ -28,12 +29,11 @@
     } else {
         require("page/404.php");
     }
+
+
 ?>
 <!-- Moniteur d'affichage des erreurs -->
 <pre class="monitor">
-    <style>
-        
-    </style>
     <?php
         var_dump($_SESSION);
         $page = $_GET['page'];

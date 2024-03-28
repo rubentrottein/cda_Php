@@ -4,16 +4,18 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
-                        <h2 class="display-4 text-primary">Profil de <?= $user['firstName']?></h2>
+                        <h2 class="display-4 text-primary">Profil de <?= $_SESSION['user']['firstName']?></h2>
                         <div class="my-5">
-                        <p class="text-danger">Prénom : <span class="mark"><?= $user['firstName']?></mark></p>
-                        <p class="text-danger">Nom : <span class="mark"><?= $user['lastName']?></mark></p>
-                        <p class="text-danger">N° de téléphone : <span class="mark"><?= $user['phone']?></mark></p>
+                        <p class="text-danger">Prénom : <span class="mark"><?= $_SESSION["user"]['firstName']?></mark></p>
+                        <p class="text-danger">Nom : <span class="mark"><?= $_SESSION["user"]['lastName']?></mark></p>
+                        <p class="text-danger">N° de téléphone : <span class="mark"><?= $_SESSION["user"]['phone']?></mark></p>
                         <p class="text-danger">Adresse email : <span class="mark"><?= $_SESSION['user']['email']?></mark></p>
                         <div class="monitor">
                             <p>password : <?= $_SESSION['user']['password']?></p>
                         </div>
                             
+                            <?php isset($message) && display_flash_message(); ?>
+
                             <form id="login" method="POST" action="#">
                                 <div class="form-floating">
                                     <input class="form-control" id="mail" type="text" name="firstName" placeholder="Enter your email..." data-sb-validations="required,firstName" value="<?=$_SESSION['user']['firstName']?>"/>
