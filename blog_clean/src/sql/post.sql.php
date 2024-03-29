@@ -39,3 +39,28 @@ function getOnePost($slug){
         die("Erreur SQL : " . $e->getMessage());
     }
 }
+
+
+
+function addPost($post, $slug, $id_users){
+    global $pdo;
+    try {
+        $query = 
+        "INSERT INTO comments
+            (title, slug, content, createdAt, updatedAt, image, id_users, id_categories)
+        VALUES
+            (:title, :slug, :content, $today,$today, :image, $id_users, :id_categories)";
+        die($query);
+        $cursor = $pdo->prepare($query);
+            $cursor->bindParam(":title", $post['title'],   PDO::PARAM_STR);
+            $cursor->bindParam(":content", $post['content'],   PDO::PARAM_STR);
+            $cursor->bindParam(":image", $post['image'],   PDO::PARAM_STR);
+            $cursor->bindParam(":slug", $slug, PDO::PARAM_STR);
+            $cursor->bindParam(":id_categories", $post['id_categories'],   PDO::PARAM_INT);
+        $cursor->execute();
+        return TRUE;
+    } catch (PDOException $e){
+        set_flash_message("Erreur dans l'ajout d'un article : $e", "info");
+        return FALSE;
+    }
+}

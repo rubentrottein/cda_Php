@@ -2,7 +2,7 @@
         <!-- Main Content-->
         
         <?php isset($message) && display_flash_message(); ?>
-        <div class="container px-4 px-lg-5">
+        <main class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <!-- Post preview-->
@@ -34,5 +34,5 @@
                     <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Articles précédents →</a></div>
                 </div>
             </div>
-        </div>
+        </main>
 <?php include 'partials/footer.inc.php'?>

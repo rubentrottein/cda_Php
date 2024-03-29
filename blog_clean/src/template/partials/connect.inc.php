@@ -1,5 +1,3 @@
-<?php
- ?>
 <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
   <div class="offcanvas-header bg-dark text-light">
     <h5 class="offcanvas-title display-6" id="offcanvasWithBothOptionsLabel">Connectez-vous!</h5>

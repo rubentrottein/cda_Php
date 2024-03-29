@@ -34,8 +34,13 @@
 ?>
 <!-- Moniteur d'affichage des erreurs -->
 <pre class="monitor">
+    <h3>Session</h3>
     <?php
         var_dump($_SESSION);
+    ?>
+    <h3>Post</h3>
+    <?php
+        var_dump($_POST);
         $page = $_GET['page'];
         echo "Page actuelle : $page , Image : $layoutImage";
     ?>
