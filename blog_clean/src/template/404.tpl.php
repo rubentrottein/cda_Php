@@ -1,7 +1,8 @@
-<?php include "template/partials/header.inc.php";?>
+<?php require "template/partials/header.inc.php";?>
 <style>
     header{background : none;}
-    video{
+    
+    #not-found video{
         width: 100%;
         position: fixed;
         top: 0;
@@ -9,7 +10,7 @@
         width: 100dvw;
         z-index: 0;
     }
-    article{
+    #not-found article{
         position: fixed;
         left: 10rem;
         bottom: 3rem;
@@ -22,11 +23,12 @@
         padding: 1rem;
         text-align: center;
     }
-    article a{color: royalblue; text-decoration: none;}
+    #not-found article a{color: royalblue; text-decoration: none;}
 </style>
-<video src="public/front/assets/video/404.mp4" muted autoplay loop></video>
-<article>
-    <h1>404 - Page not found</h1>
-    <p>Vidéo de <a href="https://pixabay.com/fr/users/u_zys3fy54t3-36732626/?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=164386">u_zys3fy54t3</a> sur <a href="https://pixabay.com/fr//?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=164386">Pixabay</a></p>
-</article>
-<?include "template/partials/footer.inc.php"?>
+<section id="not-found">
+    <video src="public/front/assets/video/404.mp4" muted autoplay loop></video>
+    <article>
+        <h1>404 - Page not found</h1>
+        <p>Vidéo de <a href="https://pixabay.com/fr/users/u_zys3fy54t3-36732626/?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=164386">u_zys3fy54t3</a> sur <a href="https://pixabay.com/fr//?utm_source=link-attribution&utm_medium=referral&utm_campaign=video&utm_content=164386">Pixabay</a></p>
+    </article>
+</section>

@@ -1,9 +1,19 @@
 <?php
+function nbPosts(){
+    $query = "SELECT COUNT(*) AS nbPosts FROM post WHERE active = TRUE";
+    $cursor = $pdo->query($query);
+    $nb = $cursor->fetch();
+    return $nb['nbPosts'];
+}
 
-function getAllPosts(){
+function getAllPosts($currentPage = 1){
     global $pdo;
+    
+    $offset = ($currentPage - 1) * NB_PAGINATE;
+
     try {
-        $query = "SELECT image, updatedAt, title, A.slug AS postSlug, LEFT(A.content, 150)  AS content, name, B.slug AS categorySlug, lastName, firstName, COUNT(D.id) AS nbComments
+        $query = 
+        "SELECT image, updatedAt, title, A.slug AS postSlug, LEFT(A.content, 150)  AS content, name, B.slug AS categorySlug, lastName, firstName, COUNT(D.id) AS nbComments
         FROM posts A
         INNER JOIN categories B ON A.id_categories = B.id
         INNER JOIN users C ON id_users = C.id
@@ -11,10 +21,11 @@ function getAllPosts(){
         WHERE active = TRUE
         GROUP BY A.id
         ORDER BY updatedAt DESC
-        LIMIT ";
-        $cursor = $pdo->query($query . NB_PAGINATE);
+        LIMIT " . $offset . "," . NB_PAGINATE;
+        $cursor = $pdo->query($query);
         $posts = $cursor->fetchAll();
         return $posts;
+
     } catch (PDOException $e) {
         die("Erreur SQL : " . $e->getMessage());
     }
@@ -40,7 +51,33 @@ function getOnePost($slug){
     }
 }
 
+function getPostByCategory($slug){
+    global $pdo;
 
+    try {
+        $query = 
+        "SELECT 
+            image, updatedAt, title, A.slug AS postSlug, 
+            LEFT(A.content, 150) AS content,
+            COUNT(D.id) AS nbComments
+        FROM posts A
+        INNER JOIN categories B ON A.id_categories = B.id
+        LEFT JOIN comments D ON D.id_posts = A.id
+        WHERE active = TRUE
+        AND B.slug = :slug
+        GROUP BY A.id ORDER BY updatedAt DESC; 
+        ";
+
+        $cursor = $pdo->prepare($query);
+            $cursor -> bindValue(":slug", $slug, PDO::PARAM_STR);
+            $cursor->execute();
+        $posts = $cursor->fetchAll();
+        
+        return $posts;
+    } catch (PDOException $e) {
+        die("Erreur SQL : " . $e->getMessage());
+    }
+}
 
 function addPost($post, $slug, $id_users){
     global $pdo;
@@ -64,3 +101,5 @@ function addPost($post, $slug, $id_users){
         return FALSE;
     }
 }
+
+

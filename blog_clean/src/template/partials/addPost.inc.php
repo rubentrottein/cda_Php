@@ -14,16 +14,13 @@
                     </div>
                     <div class="floating-form mx-auto">
                         <label for='image'>Image</label>
-                        <input type="text" name="image" id="title" value="1711051837560599.jpg">
-                    </div>
-                    <div class="floating-form mx-auto">
-                        <input type="text" name="title" id="title" value="">
+                        <input type="text" name="image" id="image" value="1711051837560599.jpg">
                     </div>
                     <div>
                         <label for="category">Catégorie</label>
                         <select name="id_category" id="category" class="form-select" aria-label="Default select example">
-                        
-                            <?php foreach ($categories as $category) {?>
+                            <?php 
+                            foreach ($categories as $category) {?>
                                 <option value="<?=$category['id']?>"><?=$category['name']?></option>
                             <?php } ?>
                         </select>

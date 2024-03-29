@@ -1,4 +1,3 @@
-<?php require "connect.inc.php"?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -27,7 +26,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand " href="#"><?= SITE_NAME?></a>
+                <a class="navbar-brand " href="#"><?= $headerTitle?></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -36,7 +35,18 @@
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="?page=home">Home</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="?page=about">About</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="?page=404">Sample Post</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link px-lg-3 py-3 py-lg-4 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Categories
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="?page=404">Sample Post</a></li>
+                                <?php foreach ($categories as $category) { ?>
+                                    <li><a href="?page=category&slug=<?=$category['slug']?>" class="dropdown-item"><?= $category['name'];?></a></li>
+                                <?php } ?>
+                            </ul>
+                        </li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="?page=contact">Contact</a></li>
                         <?php
                         if(!isset($_SESSION['user'])){
@@ -45,7 +55,7 @@
                         } else {
                             echo "<li class='nav-item'><a class='nav-link px-lg-3 py-3 py-lg-4' href='?page=logout'>Log out</a></li>";
                             echo "<li class='nav-item'><a class='nav-link px-lg-3 py-3 py-lg-4' href='?page=profile'>Profil de ".$_SESSION['user']['firstName']."</a></li>";
-                            echo '<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalFullscreen">Full screen</button>';                        
+                            echo '<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalFullscreen">Ecrire un article</button>';                        
                         }?>
                     </ul>
                 </div>

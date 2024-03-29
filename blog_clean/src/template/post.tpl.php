@@ -1,5 +1,5 @@
 
-<?php include 'partials/header.inc.php'?>
+<?php require 'partials/header.inc.php'?>
         <!-- Post Content-->
         <article class="mb-4">
             <div class="container px-4 px-lg-5">

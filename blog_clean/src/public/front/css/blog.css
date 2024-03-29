@@ -17,10 +17,11 @@
 
 
 #offcanvasWithBothOptions{
-    background: url("../assets/img/1703963842960182.png")fixed;
+    background: url("../assets/img/offCanvas-bg.png")fixed;
     background-size:cover;
 }
 .offcanvas-body form{
     backdrop-filter: blur(15px);
     border-radius : 10px;
 }
+

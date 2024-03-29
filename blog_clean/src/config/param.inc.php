@@ -13,9 +13,10 @@ $headerSubheading = "";
 //Config BDD MySQL
 define("DB_HOST", "localhost:3306");
 define("DB_USER", "root");
-define("DB_NAME", "cda");
-define("DB_PASSWORD", "");
 
+/*MAMP to WAMP switch
+** WAMP *     define("DB_NAME", "cda");define("DB_PASSWORD", "");
+** MAMP */    define("DB_NAME", "cda");define("DB_PASSWORD", "root");
 
 
 $options= array(
@@ -25,5 +26,5 @@ $options= array(
 );
 
 // Pagination par défaut
-define('NB_PAGINATE', 10);
-define('SITE_NAME', "La tech dans les étoiles");
+define('NB_PAGINATE', 2);
+define('SITE_NAME', "La Tech dans les étoiles");

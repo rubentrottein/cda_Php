@@ -1,8 +1,7 @@
 <?php
 
     require "sql/comment.sql.php";
-    require "sql/post.sql.php";
-    require("sql/category.sql.php"); 
+    require "sql/post.sql.php"; 
     
     if(!isset($_GET['slug'])){
         header("location : ?page=404");

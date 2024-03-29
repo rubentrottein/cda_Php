@@ -3,7 +3,7 @@ function getAllCategories(){
     global $pdo;
     try{
 
-        $query= "SELECT id, name FROM categories ORDER BY name ASC";
+        $query= "SELECT id, name, slug FROM categories ORDER BY name ASC";
         $cursor = $pdo-> query($query);
         $categories = $cursor->fetchAll();
         
@@ -13,4 +13,3 @@ function getAllCategories(){
         echo "erreur SQL : " . $e;
     }
 }
-$categories = getAllCategories();

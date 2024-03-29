@@ -35,5 +35,9 @@
                 </div>
             </div>
         </footer>
+        <?php 
+            require "connect.inc.php";
+            require "addPost.inc.php";
+        ?>
     </body>
 </html>

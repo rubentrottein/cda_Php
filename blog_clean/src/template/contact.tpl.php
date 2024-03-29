@@ -1,4 +1,4 @@
-<?php include 'partials/header.inc.php'?>
+<?php require 'partials/header.inc.php'?>
         <!-- Main Content-->
         <main class="mb-4">
             <div class="container px-4 px-lg-5">
