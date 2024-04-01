@@ -36,11 +36,7 @@
 <!-- Moniteur d'affichage des erreurs -->
 <pre class="monitor">
     <h3>Session</h3>
-    <?php
-        var_dump($_SESSION);
-    ?>
+    <?php var_dump($_SESSION["flash_message"]);?>
     <h3>Post</h3>
-    <?php
-        var_dump($_POST);
-    ?>
+    <?php //var_dump($_POST);?>
 </pre>

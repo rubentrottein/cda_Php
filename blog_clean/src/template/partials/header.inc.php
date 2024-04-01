@@ -76,3 +76,4 @@
         </header>
         <!-- Main Content-->
         <main class="mb-4" id="main">
+<?php isset($message) && display_flash_message(); ?>

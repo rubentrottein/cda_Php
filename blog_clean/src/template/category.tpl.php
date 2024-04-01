@@ -1,5 +1,6 @@
 <?php 
     require "partials/header.inc.php";
+    require 'partials/sidebar.inc.php';
 ?>
 
     <div class="row gx-4 gx-lg-5 justify-content-center">

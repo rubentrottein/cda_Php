@@ -28,3 +28,6 @@ $options= array(
 // Pagination par défaut
 define('NB_PAGINATE', 2);
 define('SITE_NAME', "La Tech dans les étoiles");
+
+
+$today = date("Y-m-d H:i:s");

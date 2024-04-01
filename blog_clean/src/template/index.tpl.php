@@ -2,7 +2,6 @@
     require 'partials/header.inc.php';
     require 'partials/sidebar.inc.php';
 ?>
-<?php isset($message) && display_flash_message(); ?>
     <div class="row gx-4 gx-lg-5 justify-content-center">
         <div class="col-md-10 col-lg-8 col-xl-7">
             <!-- Post preview-->
@@ -33,9 +32,14 @@
                 <!-- Pager-->
                 <nav>
                     <ul class="pagination mx-auto">
-                        <?php for($i=1; i<$nbPosts; $i++){?>
-                            <li class="page-item"><a class="page-link" href="?current-page=<?=$nbPosts?>"><?=$nbPosts?></a></li>
-                        <?php }?>
+                        <?php 
+                        /*
+                        $nbPosts = 3;
+                        for($i=1; i<$nbPosts; $i++){
+                            echo "<li class='page-item'><a class='page-link' href='?current-page='" . $nbPosts . "'>".$nbPosts."</a></li>";
+                        }
+                        */
+                        ?>
                     </ul>
                 </nav>
             <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Articles précédents →</a></div>

@@ -25,3 +25,10 @@
     border-radius : 10px;
 }
 
+#main .sticky-top{
+    width: 10em;
+    z-index: 2000;
+}
+#main img{
+    max-width: 100%;
+}

@@ -80,6 +80,30 @@ VALUES
         1,
         3
     );
+    (
+        "Xbox Game Pass", "xbox-game-pass", "
+        <h3>Le futur du divertissement entre vos mains</h3>
+        <p>
+        Jouer à des centaines de jeux exceptionnels avec des amis sur console, PC et dans le cloud, avec de nouveaux jeux régulièrement ajoutés, pour avoir toujours une nouveauté à découvrir...
+        </p>
+        <p>
+        <br><b>C'est possible avec le Xbox Game PASS<b>
+        </p>
+        <h4>Jouez dès le premier jour</h4> 
+        <p>
+        Jouez aux nouveaux titres Xbox Game Studios dès le jour de leur sortie, mais aussi aux franchises mythiques de Bethesda Softworks, aux jeux indépendants, à des superproductions et bien plus encore.
+        </p>
+        <h3>Jouer sur l’appareil de son choix</h3>
+        <p>
+            Téléchargez des jeux et jouez hors ligne sur votre console ou votre PC Windows ou Linux, votre Steam Deck ou votre ROG Ally, Legion Go, et autre console portable, ou diffusez des jeux en continu depuis le cloud sur votre téléphone, tablette, etc.
+        </p>",
+        '2024-02-08', 
+        '2024-02-08', 
+        "ff7rebirth.jpg", 
+        TRUE, 
+        1,
+        3
+    );
 
 INSERT INTO comments
     (content, createdAt, id_users, id_posts)
@@ -106,3 +130,5 @@ VALUES
     (2, 1),
     (3, 1),
     (3, 3);
+
+
