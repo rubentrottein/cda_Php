@@ -11,5 +11,13 @@
                 die( "Erreur SQL : " . $e->getMessage());
                 return false;
             }
-        } 
+        }
+
+        public static function recipeList(){
+            $bdd = Connect::dbConnect();
+            $request = $bdd->prepare("SELECT * FROM recettes");
+            $request->execute();
+            $recettes= $request->fetchAll();
+            return $recettes;
+        }
     }

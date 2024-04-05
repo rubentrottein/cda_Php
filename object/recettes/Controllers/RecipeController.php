@@ -6,13 +6,13 @@ class RecipeController extends NavController{
     //Affichage du formulaire
     public function recipeForm(){
         $this->displayNav();
-        $categories = NavController->Category();
+        $categories = CategoryModel::getCategories();
         include "Views/recipe.php";
     }
 
-    public function add(){
-        if(isset($_POST['add_recipe'])){
-            print_r($_FILES['image']);
+    public function addRecipe(){
+        if(isset($_POST['newRecipe'])){
+            //print_r($_FILES['image']);
             //$name = $_FILES['image']['name'];
             $tmp = $_FILES['image']['tmp_name'];
             $type = explode('/', $_FILES['image']['type']);
@@ -22,12 +22,16 @@ class RecipeController extends NavController{
             $fileDestination = $_SERVER["DOCUMENT_ROOT"]."/recette/imgs/$name. '.' . $type";
             // verification de la sauvegarde de l'image
             if(move_uploaded_file($tmp, $fileDestination)){
-                if(RecipeModel::addRecipe($_POST['title'], $_POST['description'], $_POST['ingredientsList'], $_SESSION['user']['id_user'], $nomImage, $categorie)){
+                if(RecipeModel::addRecipe($_POST['title'], $_POST['description'],$_POST['ingredientsList'], $_SESSION['user']['id_user'], $nomImage, $_POST['categorie'])){
                     echo "OK";
                 } else {
                     echo "Erreur";
                 }
             }
         }
+    }
+
+    public function displayRecipe(){
+        $recettes = RecetteModel::recipeList();
     }
 }

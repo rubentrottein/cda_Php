@@ -69,7 +69,9 @@ form{
     backdrop-filter: blur(15px);
     border-radius: 10px;
 }
-
+section{
+    margin: 5em auto;
+}
 footer{
     position: fixed;
     bottom:0;
