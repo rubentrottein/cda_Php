@@ -1,0 +1,44 @@
+h1, h2, h1 a{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 100;
+    color: goldenrod;
+}
+body{background: url("https://picsum.photos/id/187/1980/1280") fixed no-repeat;}
+header a{color: lightseagreen;}
+nav{display: flex; justify-content: center;}
+nav a, nav p, nav li, nav ul{font-size: 1rem;}
+nav li{list-style:none;}
+summary {
+    display: block; /* This hides the summary's ::marker pseudo-element */
+}
+
+summary::-webkit-details-marker {
+    display: none; /* This also hides the ::marker pseudo-element, but in Safari */
+}
+
+@font-face {
+    font-family: "foxgrab";
+    src: url("https://mistertea.fr/css/font/foxgrab/Foxgrab.ttf");
+}
+@font-face {
+    font-family: "fruitStar";
+    src: url("https://mistertea.fr/css/font/the_fruit_star/The\ Fruit\ Star.ttf");
+}
+@font-face {
+    font-family: "uniGeo";
+    src: url("https://mistertea.fr/css/font/unigeo/Unigeo128-Regular-trial.ttf");
+}
+
+form{
+    width: 70%;
+    margin: 2em auto;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+}

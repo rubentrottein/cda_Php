@@ -15,9 +15,9 @@ define("DB_HOST", "localhost:3306");
 define("DB_USER", "root");
 
 /*MAMP to WAMP switch
-** WAMP *     define("DB_NAME", "cda");define("DB_PASSWORD", "");
-** MAMP */    define("DB_NAME", "cda");define("DB_PASSWORD", "root");
-
+    /** WAMP */     define("DB_NAME", "cda");define("DB_PASSWORD", "");
+    /** MAMP *   define("DB_NAME", "cda");define("DB_PASSWORD", "root");
+*/
 
 $options= array(
     PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8", 
