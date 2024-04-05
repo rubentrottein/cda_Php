@@ -10,8 +10,6 @@ class UserModel{
             $request = $db->prepare("INSERT INTO users (nom, prenom, email,mdp) VALUES (?, ?, ?, ?)");
             // executer la requete
             $request->execute(array($_POST['nom'], $_POST['prenom'], $_POST['email'], $hashedPassword));
-            header("Location : index.php?url=connection");
-            exit;
         } catch (PDOException $e){
             die("Erreur SQL => " . $e);
         }
@@ -23,7 +21,9 @@ class UserModel{
             $db = Connect::dbConnect();
             $request = $db->prepare("SELECT * FROM users WHERE email = ?");
             $request->execute(array($_POST['email']));
+            $user = $request->fetch();
             return $user;
+
         } catch (PDOException $e){
             die("Erreur SQL => " . $e);
         }

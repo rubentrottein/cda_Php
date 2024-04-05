@@ -2,6 +2,7 @@
 session_start();
 require_once "Controllers/HomeController.php";
 require_once "Controllers/UserController.php";
+require_once "Controllers/RecipeController.php";
 // Récuperer l'URL demandé par l'utilisateur OU => home
 $url = isset(($_GET['url'])) ? $_GET['url'] : 'home';
 
@@ -26,6 +27,10 @@ switch($url){
         $controller = new UserController();
         $controller -> login();
     break;
+    case 'addRecipe':
+        $controller = new RecipeController();
+        $controller -> addRecipeForm();
+    break;
     default :
-        require_once "Views/404.php"; 
+        require_once "Views/404.php";
 }

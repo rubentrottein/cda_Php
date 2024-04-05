@@ -6,7 +6,7 @@
 
         private function __construct(){
             try{
-                self::$db = new PDO("mysql:host=localhost; dbname=cda_recettes", "root", "");
+                self::$db = new PDO("mysql:host=localhost; dbname=cda_collection", "root", "root");
             } catch(PDOException $e){
                 echo $e->getMessage();
             }
