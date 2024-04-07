@@ -11,18 +11,18 @@ class RecipeController extends NavController{
     }
 
     public function addRecipe(){
-        if(isset($_POST['newRecipe'])){
-            //print_r($_FILES['image']);
-            //$name = $_FILES['image']['name'];
+        if(isset($_POST['addRecipe'])){
             $tmp = $_FILES['image']['tmp_name'];
             $type = explode('/', $_FILES['image']['type']);
+            $type = $type[1];
             $name = date("YmdHis");
-            $nomImage = $name.".".$type[1];
-
-            $fileDestination = $_SERVER["DOCUMENT_ROOT"]."/recette/imgs/$name. '.' . $type";
+            $nomImage = $name.".".$type;
+            
+            $fileDestination = $_SERVER["DOCUMENT_ROOT"]."/cda_Php/object/recettes/public/images/".$nomImage;
             // verification de la sauvegarde de l'image
+            $debug = [$_POST['title'], $_POST['description'],$_POST['ingredient'], $_SESSION['user']['id_user'], $nomImage, $_POST['category']];
             if(move_uploaded_file($tmp, $fileDestination)){
-                if(RecipeModel::addRecipe($_POST['title'], $_POST['description'],$_POST['ingredientsList'], $_SESSION['user']['id_user'], $nomImage, $_POST['categorie'])){
+                if(RecipeModel::addRecipe($_POST['title'], $_POST['description'],$_POST['ingredientsList'], $_SESSION['user']['id_user'], $nomImage, $_POST['category'])){
                     echo "OK";
                 } else {
                     echo "Erreur";
@@ -30,8 +30,8 @@ class RecipeController extends NavController{
             }
         }
     }
-
     public function displayRecipe(){
-        $recettes = RecetteModel::recipeList();
+        $recettes = RecipeModel::recipeList();
+        return $recettes;
     }
 }

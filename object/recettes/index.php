@@ -36,6 +36,10 @@ switch($url){
         $controller = new RecipeController();
         $controller -> addRecipe();
     break;
+    case 'like':
+        $controller = new LikeController();
+        $controller -> like();
+    break;
     default :
         require_once "Views/404.php";
 }
