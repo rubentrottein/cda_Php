@@ -1,0 +1,35 @@
+body{
+    background: black;
+    color: white;
+}
+main{
+    display: grid;
+    place-content: center;
+    width: 70%;
+    margin: auto;
+    background: #eee;
+    min-height: 70vh;
+    color: black;
+}
+section{
+    width: 70%;
+    margin: auto;
+}
+.list{
+    display: flex; 
+    justify-content:space-between; 
+    width: 80%; 
+    margin: 2em auto;
+    color: white;
+    gap: 2em;
+}
+.list>a, .list>p{
+    width: 10vmax;
+    height: 10vmax;
+    color: white;
+    padding: 1em;
+    text-align: center;
+    display: grid;
+    place-items: center;
+    padding: 2em;
+}
