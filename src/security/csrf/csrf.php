@@ -18,6 +18,7 @@
 <body>
     <header>
         <h1>Sécurité : Faille CSRF</h1>
+        <?php require("../nav.php");?>
     </header>
     <main>
         <article class="list">

@@ -35,6 +35,7 @@
     <body>
         <header>
             <h1>La page vulnérable</h1>
+            <?php require("../nav.php");?>
         </header>
         <main>
             <article class="list">

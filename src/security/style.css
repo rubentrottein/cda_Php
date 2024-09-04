@@ -1,19 +1,34 @@
-body{
+*{
+    font-family: monospace;
+}
+.darkMode{
     background: black;
     color: white;
 }
+header, footer{
+    border-bottom: lime 1px solid;
+    color: tomato;
+    margin-bottom: 1em;
+}
 main{
+    width: 80%;
+    margin: auto;
+    background: #eee;
+    color: black;
+    min-height: 70vh;
+    border-radius: 1em;
+    padding: 1em;
+    margin-bottom: 3em;
+}
+.frame{
     display: grid;
     place-content: center;
     width: 70%;
     margin: auto;
-    background: #eee;
-    min-height: 70vh;
-    color: black;
+    padding: 1em;
 }
-section{
-    width: 70%;
-    margin: auto;
+label{
+    display: block;
 }
 .list{
     display: flex; 
@@ -32,4 +47,20 @@ section{
     display: grid;
     place-items: center;
     padding: 2em;
+}
+footer{
+    position: fixed;
+    bottom:-3em;
+    left: 0;
+    width: 100%;
+    border-bottom: none;
+    border-top: 1px lime solid;
+    color: lime;
+    text-align: center;
+    background: rgba(0,0,0,.8);
+    transition: .5s;
+}
+
+footer:hover{
+    bottom:0;
 }
